@@ -1,7 +1,8 @@
 {
-  "name": "sample-ecommerce",
+  "name": "react-crud-seacrh-sample",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://github.com/raviabeypaul/React-CRUD-Seacrh-Sample",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -47,7 +48,8 @@
     "eject": "react-scripts eject",
     "coverage": "npm test -- --coverage",
     "eslint:github-action": "node ./node_modules/eslint/bin/eslint . --ignore-path .gitignore --max-warnings 0",
-    "e2e-test":"npx playwright test"
+    "e2e-test": "npx playwright test",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -66,7 +68,8 @@
     "@types/js-search": "^1.4.4",
     "@types/redux-logger": "^3.0.12",
     "@types/redux-persist": "^4.3.1",
-    "eslint-config-prettier": "^9.1.0"
+    "eslint-config-prettier": "^9.1.0",
+    "gh-pages": "^6.1.0"
   },
   "jest": {
     "transformIgnorePatterns": [
