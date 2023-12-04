@@ -35,4 +35,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npx playwright install 
+    - run: npm run e2e-test
     - run: npm run eslint:github-action
