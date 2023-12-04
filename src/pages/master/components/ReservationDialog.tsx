@@ -67,7 +67,7 @@ const initialState: ReservationDto = {
   tags: []
 }
 
-export default function (props: ReservationDialogProps) {
+export const ReservationDialog =(props: ReservationDialogProps) => {
   const [reservation, setReservation] = React.useState<ReservationDto>(props.reservation ? props.reservation : initialState)
   return (
     <React.Fragment>

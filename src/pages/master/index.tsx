@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useReservationSource } from "../../hooks/useReservationSource";
 import { ReservationDto } from "../../dtos/Reservation";
 import { useState } from "react";
-import ReservationDialog from "./components/ReservationDialog";
+import {ReservationDialog} from "./components/ReservationDialog";
 import { enqueueSnackbar } from "notistack";
 import { hasValue, isEmailValid } from "../../utils/Utils";
 
 
 
 export default function MasterPage() {
-  const { reservations, addData, removeReservation, updateReservation } = useReservationSource()
+  const { reservations, addData, updateReservation } = useReservationSource()
   const [selectedReservation, setSelectedReservation] = useState<ReservationDto>();
   const [open, setOpen] = useState<boolean>(false)
   const [view, setView] = useState<'edit' | 'add' | 'view'>('view')

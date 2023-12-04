@@ -45,13 +45,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm test -- --coverage"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "coverage": "npm test -- --coverage",
+    "eslint:github-action": "node ./node_modules/eslint/bin/eslint . --ignore-path .gitignore --max-warnings 0",
+    "e2e-test":"npx playwright test"
   },
   "browserslist": {
     "production": [
@@ -69,7 +65,8 @@
     "@playwright/test": "^1.40.1",
     "@types/js-search": "^1.4.4",
     "@types/redux-logger": "^3.0.12",
-    "@types/redux-persist": "^4.3.1"
+    "@types/redux-persist": "^4.3.1",
+    "eslint-config-prettier": "^9.1.0"
   },
   "jest": {
     "transformIgnorePatterns": [

@@ -43,25 +43,25 @@ export const useReservationSource  = ()=>{
         return results
     }
 
-    const searchByKey = (key : string)=>{
-         localReservations.filter((value : ReservationDto)=>{
-            const result = get(value, key)
-            console.log(result)
-         })
+    const searchByKey = (key : string, value : string)=>{
+        const searchResults : ReservationDto[] = []
+        localReservations.forEach((reservation)=>{
+            const result : string = get(reservation, key)
+            if(result.toLocaleLowerCase().includes(value.toLocaleLowerCase())){
+                searchResults.push(reservation)
+            }
+        })
+        console.log(searchResults)
+        return searchResults;
     }
 
     const updateReservation = (reservation : ReservationDto)=>{
-          let _reservations = localReservations.map((_reservation)=>{
-            if(_reservation.id == reservation.id){
-                return reservation
-            }
-            return _reservation
-          })
           dispatch(updateCart(reservation))
     }
 
     useEffect(()=>{
         init();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return {

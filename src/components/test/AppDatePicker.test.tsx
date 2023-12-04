@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen, fireEvent, createEvent, getByRole, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { AppDatePicker } from '../AppDatePicker';
 import dayjs from 'dayjs';
 

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-
+/* eslint-disable testing-library/prefer-screen-queries */
 test('Testing Edit Functionality', async ({ page }) => {
   await page.goto('http://localhost:3000/');
   await page.getByTestId("edit_0").click();

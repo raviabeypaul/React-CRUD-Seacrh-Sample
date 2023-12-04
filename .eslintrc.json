@@ -1,0 +1,17 @@
+{
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+        "no-ternary":"off"
+    },
+    "overrides": [
+        {
+            "files": ["**.test.tsx", "**.spec.tsx"],
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+        }
+    ]
+  }

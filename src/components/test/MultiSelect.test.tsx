@@ -1,25 +1,19 @@
 import React from 'react';
-import { render, screen, fireEvent, createEvent, waitFor, getByRole } from '@testing-library/react';
-import { AppDatePicker } from '../AppDatePicker';
-import dayjs from 'dayjs';
-import { EditText } from '../EditText';
+import { render, screen, fireEvent} from '@testing-library/react';
 import MultiSelect, { MultiSelectItemValue } from '../MultiSelect';
-import userEvent from '@testing-library/user-event';
 
 
 
 
 describe('Testing MultiSelect', () => {
-    const jestfn = jest.fn((value)=>{{
-        console.log(value)
-    }})
+    const jestfn = jest.fn()
     const values: MultiSelectItemValue[] = [{value:'value1', selected : true}, {value:'value2', selected : false}]
     let root = <MultiSelect disabled={false} label='MultiSelect' onItemsChanged={jestfn} values={values}/>;
     beforeEach(()=>{
         root = <MultiSelect disabled={false} label='MultiSelect' onItemsChanged={jestfn} values={values}/>;
     })
    
-    test('Test MultiSelect', async () => {
+    test('Selected Item Should in the view', async () => {
       
         render(<MultiSelect disabled={false} label='MultiSelect' onItemsChanged={jestfn} values={values}/>)
         const select = screen.getByTestId('select');
@@ -30,7 +24,7 @@ describe('Testing MultiSelect', () => {
       
     })
 
-    test('Test MultiSelect Error', async () => {
+    test('Should throw Error, if not selected item', async () => {
         expect(() => { render(root)
             const select = screen.getByTestId('select');
             fireEvent.click(select)
