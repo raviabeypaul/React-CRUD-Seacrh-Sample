@@ -2,6 +2,7 @@
   "name": "react-crud-seacrh-sample",
   "version": "0.1.0",
   "private": true,
+  "proxy" : "http://localhost:3000",
   "homepage":"https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample",
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -93,4 +94,4 @@
       "text"
     ]
   }
-}
+  }
