@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/](https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/) to view it in the browser.
 
 Open in Mobile Phone with IP Address at port 3000
 
