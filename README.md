@@ -21,23 +21,24 @@ You will also see any lint errors in the console.
 
 This has implemented Master Page with Default Data Set.
 
-Functionalities Available in Matser Page are
+Functionalities Available in Master Page are
 
-1. Search
+1. Search Link
 
 2. Create 
 
 3. Edit
 
-Navigation can be achieved by Selecting Products in landing page [http://localhost:3000] and hitting a Floating Action Buttons on home screen
+4. View Reservation
 
+Navigation can be achieved by Clicking in Search Button in landing page [https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/] 
 ### `Page Routes`
 
 Available Page Routes are
 
-http://localhost:3000/ - `Home Page - Product Listing`
+https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/ - `Home Page - Master Page`
 
-http://localhost:3000/cart - `Cart Page - View Cart, can be navigated by hitting the navigation at bottom right corner`
+https://raviabeypaul.github.io/search - `Search Page`
 
 Your app is ready to be deployed!
 
@@ -57,10 +58,17 @@ src/pages/[components] - `Components ans styling specific to that page is presen
 
 src/service - `Service that connects to Db / External Source`
 
-
 src/store - `This contains Reducers, Slices, Actions`
 
 src/utils - `This contains common util functions`
+
+src/data - `Default data json to be loaded`
+
+src/dtos - `Dtos that are used accross the application`
+
+src/styles - `Styling across the application`
+
+tests - `Playwright test cases`
 
 Your app is ready to be deployed!
 
