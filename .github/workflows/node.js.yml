@@ -26,7 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm ci -g npx
+    - run: npm i -g npx
     - run: npm run e2e-test
     - run: npm run eslint:github-action
     - run: npm test
