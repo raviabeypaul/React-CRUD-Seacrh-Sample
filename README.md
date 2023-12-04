@@ -48,7 +48,7 @@ Folder structure are as Follows
 
 src - `home to all source code`
 
-src/components - `Common Components and styling in scss`
+src/components - `Common Components`
 
 src/hooks - `Common Hooks`
 
