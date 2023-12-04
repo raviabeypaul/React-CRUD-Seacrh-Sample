@@ -64,7 +64,6 @@ const initialState: ReservationDto = {
   },
   tags: []
 }
-
 export const ReservationDialog =(props: ReservationDialogProps) => {
   const [reservation, setReservation] = React.useState<ReservationDto>(props.reservation ? props.reservation : initialState)
   return (
