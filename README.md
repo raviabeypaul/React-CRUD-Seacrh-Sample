@@ -19,9 +19,15 @@ You will also see any lint errors in the console.
 
 ### `Implementation`
 
-This has implemented Product listing with Fake Store Api.
+This has implemented Master Page with Default Data Set.
 
-As there was no Fake Store Api available for pagination, we used the same api repeatedly to mock pagination with same set of records.
+Functionalities Available in Matser Page are
+
+1. Search
+
+2. Create 
+
+3. Edit
 
 Navigation can be achieved by Selecting Products in landing page [http://localhost:3000] and hitting a Floating Action Buttons on home screen
 

@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <SnackbarProvider>
-          <App />
+      <App />
     </SnackbarProvider>
-   </React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
