@@ -25,7 +25,6 @@ const iconButtonStyle: SxProps<Theme> = {
   top: 8,
   color: (theme) => theme.palette.grey[500]
 }
-
 type ReservationDialogProps = {
   viewType: 'edit' | 'add' | 'view';
   reservation?: ReservationDto;
@@ -34,7 +33,6 @@ type ReservationDialogProps = {
   onSave: (reservation: ReservationDto) => void;
   onDataUpdated: (reservation: ReservationDto) => void;
 }
-
 const initialState: ReservationDto = {
   addressLocation: {
     city: '',
