@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Reservation App
 
 This project was written with React (Typescript) with Redux Toolkit for management of store and uses the FakeAPI for demonstration purposes
 
