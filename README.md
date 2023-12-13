@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 
-Open [https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/](https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/) to view it in the browser.
+Open [http://ec2-3-82-108-46.compute-1.amazonaws.com:3000/](http://ec2-3-82-108-46.compute-1.amazonaws.com:3000/) to view it in the browser.
 
 Open in Mobile Phone with IP Address at port 3000
 
@@ -31,14 +31,14 @@ Functionalities Available in Master Page are
 
 4. View Reservation
 
-Navigation can be achieved by Clicking in Search Button in landing page [https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/] 
+Navigation can be achieved by Clicking in Search Button in landing page [http://ec2-3-82-108-46.compute-1.amazonaws.com:3000/] 
 ### `Page Routes`
 
 Available Page Routes are
 
-https://raviabeypaul.github.io/React-CRUD-Seacrh-Sample/ - `Home Page - Master Page`
+http://ec2-3-82-108-46.compute-1.amazonaws.com:3000/ - `Home Page - Master Page`
 
-https://raviabeypaul.github.io/search - `Search Page`
+http://ec2-3-82-108-46.compute-1.amazonaws.com:3000/search - `Search Page`
 
 Your app is ready to be deployed!
 
