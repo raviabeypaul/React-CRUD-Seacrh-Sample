@@ -60,7 +60,7 @@ export const useReservationSource  = ()=>{
     }
 
     const updateReservation = async (reservation : ReservationDto)=>{
-        let res : ServerResponseDto = await put('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+        let res : ServerResponseDto = await put('https://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
             "Content-Type": "application/json"
           }, reservation)
         if(res.httpStatusCode === 200){
