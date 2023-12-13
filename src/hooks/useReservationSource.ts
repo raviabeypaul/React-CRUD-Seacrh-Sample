@@ -19,7 +19,7 @@ export const useReservationSource  = ()=>{
 
 
     const initData = async ()=>{
-        let res : ServerResponseDto = await get('https://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+        let res : ServerResponseDto = await get('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
             
           })
         if(res.httpStatusCode === 200){
@@ -30,7 +30,7 @@ export const useReservationSource  = ()=>{
     const addData = async (reservation : ReservationDto)=>{
         let id = Date.now().toString()
         reservation.id = id;
-        let res : ServerResponseDto = await post('https://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+        let res : ServerResponseDto = await post('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
             "Content-Type": "application/json"
           }, reservation)
         if(res.httpStatusCode === 200){
@@ -60,7 +60,7 @@ export const useReservationSource  = ()=>{
     }
 
     const updateReservation = async (reservation : ReservationDto)=>{
-        let res : ServerResponseDto = await put('https://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+        let res : ServerResponseDto = await put('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
             "Content-Type": "application/json"
           }, reservation)
         if(res.httpStatusCode === 200){
