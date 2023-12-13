@@ -1,52 +1,56 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { ReservationDto } from "../dtos/Reservation"
-import * as JsSearch from 'js-search';
 import { useAppDispatch, useSelector } from "../store";
-import { addToCart, removeFromCart, updateCart } from "../store/slices/Reservation";
-var get = require('lodash.get');
+import { addDocumentsToCart, addToCart, removeFromCart, updateCart } from "../store/slices/Reservation";
+import { get, post, put } from "../utils/ApiUtils";
+import { ServerResponseDto } from "../dtos/ServerResponseDto";
+var _get = require('lodash.get');
 
 
 export const useReservationSource  = ()=>{
-    const search =  useRef (new JsSearch.Search('id'));
-    const localReservations = useSelector((state)=>state.cart.reservations)
+    
+    const localReservations  = useSelector<ReservationDto[]>((state)=>state.cart.reservations)
     const dispatch = useAppDispatch()
 
     const init = ()=>{
-        initIndex()
-        search.current.addDocuments(localReservations)
+        initData()
+        
     }
 
 
-    const initIndex = ()=>{
-        search.current.addIndex('roomSize')
-        search.current.addIndex('email')
-        search.current.addIndex('phone')
-        search.current.addIndex('firstName')
-        search.current.addIndex('lastName')
-        search.current.addIndex(['addressLocation','zipCode'])
-        search.current.addIndex(['addressLocation','state'])
-        search.current.addIndex(['addressLocation','city'])
+    const initData = async ()=>{
+        let res : ServerResponseDto = await get('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+            
+          })
+        if(res.httpStatusCode === 200){
+            let newReservation= res.result;
+            dispatch(addDocumentsToCart(newReservation))
+        }
     }
-    const addData = (reservation : ReservationDto)=>{
+    const addData = async (reservation : ReservationDto)=>{
         let id = Date.now().toString()
         reservation.id = id;
-        dispatch(addToCart(reservation))
-        search.current.addDocument(reservation)
+        let res : ServerResponseDto = await post('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+            "Content-Type": "application/json"
+          }, reservation)
+        if(res.httpStatusCode === 200){
+            let newReservation= res.result;
+            dispatch(addToCart(newReservation))
+        }else{
+            throw Error("Failed in add reservation")
+        }
+        
     }
 
     const removeReservation = (reservation : ReservationDto)=>{
         dispatch(removeFromCart(reservation))
     }
 
-    const searchReservationByText = (text : string)=>{
-        let results : any = search.current.search(text);
-        return results
-    }
 
     const searchByKey = (key : string, value : string)=>{
         const searchResults : ReservationDto[] = []
         localReservations.forEach((reservation)=>{
-            const result : string = get(reservation, key)
+            const result : string = _get(reservation, key)
             if(result.toLocaleLowerCase().includes(value.toLocaleLowerCase())){
                 searchResults.push(reservation)
             }
@@ -55,8 +59,14 @@ export const useReservationSource  = ()=>{
         return searchResults;
     }
 
-    const updateReservation = (reservation : ReservationDto)=>{
-          dispatch(updateCart(reservation))
+    const updateReservation = async (reservation : ReservationDto)=>{
+        let res : ServerResponseDto = await put('http://ec2-3-82-108-46.compute-1.amazonaws.com:8080/', {
+            "Content-Type": "application/json"
+          }, reservation)
+        if(res.httpStatusCode === 200){
+            let newReservation= res.result;
+            dispatch(updateCart(newReservation))
+        }
     }
 
     useEffect(()=>{
@@ -67,7 +77,6 @@ export const useReservationSource  = ()=>{
     return {
         addData : addData,
         removeReservation : removeReservation,
-        searchReservationByText : searchReservationByText,
         updateReservation : updateReservation,
         reservations : localReservations,
         searchByKey : searchByKey

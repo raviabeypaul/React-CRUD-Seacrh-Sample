@@ -1,13 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { ReservationDto } from "../../dtos/Reservation"
 
-import localReservation from './../../data/reservations.json';
-
 interface ReservationsState {
     reservations: ReservationDto[]
 }
 
-const initialState = { reservations: localReservation } as ReservationsState
+const initialState = { reservations: [] } as ReservationsState
 // Slice for Cart Management
 const CartSlice = createSlice({
     name: 'cart',
@@ -16,6 +14,9 @@ const CartSlice = createSlice({
         // Add to Cart , update count if already present
         addToCart: (state, action: PayloadAction<ReservationDto>) => {
             state.reservations.push(action.payload)
+        },
+        addDocumentsToCart: (state, action: PayloadAction<ReservationDto[]>) => {
+            state.reservations = [...action.payload]
         },
         // Remove From Cart , update count if already present
         removeFromCart: (state, action: PayloadAction<ReservationDto>) => {
@@ -32,8 +33,14 @@ const CartSlice = createSlice({
         // clears the cart
         clearCart: (state) => {
         }
-    }
+    },
+    extraReducers: (builder) => {
+        builder.addCase('persist/REHYDRATE', (state, action) => {
+            state.reservations = []
+        },
+        );
+      },
 })
 
-export const { addToCart, removeFromCart, updateCart } = CartSlice.actions;
+export const { addToCart, removeFromCart, updateCart, addDocumentsToCart } = CartSlice.actions;
 export default CartSlice;

@@ -12,22 +12,16 @@ type SearchProps = {
 
 }
 export const Search = (searchProps: SearchProps) => {
-    const radioButtonGroupValues: RadioButtonValue[] = [{ value: 'all', displayValue: 'All' }, { value: 'email', displayValue: 'Email' }, { value: 'firstName', displayValue: 'First Name' }]
-    const { searchReservationByText, searchByKey } = useReservationSource()
+    const radioButtonGroupValues: RadioButtonValue[] = [ { value: 'email', displayValue: 'Email' }, { value: 'firstName', displayValue: 'First Name' }]
+    const { searchByKey } = useReservationSource()
     const [radioButtonValue, setRadioButtonValue] = useState<string>('all')
     const [localSearchResult, setLocalSearchResult] = useState<ReservationDto[]>()
     const onSearchInputChange = (event: any) => {
-        if (radioButtonValue === 'all') {
-            let results: ReservationDto[] = searchReservationByText(event.target.value)
-            setLocalSearchResult(results)
-        } else {
             radioButtonGroupValues.forEach((value) => {
                 if (value.value === radioButtonValue) {
                     setLocalSearchResult(searchByKey(radioButtonValue, event.target.value))
                 }
             })
-        }
-
     }
     return (
         <StyledBox flexDirections='column' >
@@ -42,7 +36,7 @@ export const Search = (searchProps: SearchProps) => {
                 loader={<h4>Loading</h4>}
                 element={(_data, _index) => {
                     return (
-                        <Grid style={{ margin: 2 }} key={_index} item xs={3} >
+                        <Grid style={{ }} key={_index} item xs={3} >
                             <SearchCard reservation={_data} />
                         </Grid>
                     )

@@ -14,7 +14,7 @@ type SearchCardProps = {
 export default function SearchCard(props : SearchCardProps) {
 
   return (
-    <Card style={{margin : 0}}>
+    <Card style={{margin : 5, height :230}}>
       <CardHeader
       
         action={
